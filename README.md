@@ -1,2 +1,0 @@
-# MERN
-Created with CodeSandbox

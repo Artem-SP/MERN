@@ -1,30 +1,19 @@
 {
-  "name": "react",
+  "name": "wern-stack",
   "version": "1.0.0",
-  "description": "React example starter project",
-  "keywords": [
-    "react",
-    "starter"
-  ],
-  "main": "src/index.js",
-  "dependencies": {
-    "react": "16.13.1",
-    "react-dom": "16.13.1",
-    "react-scripts": "3.4.3"
-  },
-  "devDependencies": {
-    "typescript": "3.8.3"
-  },
+  "description": "MERN stack",
+  "main": "app.js",
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "start": "node app.js",
+    "server": "nodemon app.js"
   },
-  "browserslist": [
-    ">0.2%",
-    "not dead",
-    "not ie <= 11",
-    "not op_mini all"
-  ]
+  "keywords": ["mern", "react"],
+  "autor": "Artem Sukhorukov",
+  "license": "ICS",
+  "dependencies": {
+    "concurrently": "5.3.0",
+    "express": "4.17.1",
+    "mongoose": "5.10.6",
+    "nodemon": "2.0.4"
+  }
 }
