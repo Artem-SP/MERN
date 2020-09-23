@@ -8,13 +8,17 @@ const PORT = config.get("port") || 5000;
 
 async function start() {
   try {
-    await mongoose.connect(config.get("mongoUrl"), {});
+    await mongoose.connect(config.get('mongoUrl'), {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+      useCreateIndex:true
+    });
     app.listen(PORT, () =>
       console.log(`App has been started on PORT ${PORT}...`)
     );
   } catch (e) {
-    console.log("Server Error", e.massage);
-    process.exit((code: 1));
+    console.log('Server Error', e.message)
+    process.exit(1);
   }
 }
 
