@@ -7,11 +7,15 @@
     "start": "node app.js",
     "server": "nodemon app.js"
   },
-  "keywords": ["mern", "react"],
+  "keywords": [
+    "mern",
+    "react"
+  ],
   "autor": "Artem Sukhorukov",
   "license": "ICS",
   "dependencies": {
     "concurrently": "5.3.0",
+    "config": "3.3.1",
     "express": "4.17.1",
     "mongoose": "5.10.6",
     "nodemon": "2.0.4"
