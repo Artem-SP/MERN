@@ -3,21 +3,22 @@ const config = require("config");
 const mongoose = require("mongoose");
 
 const app = express();
+app.use((fn: "/api/auth"), require("./routes/auth.routes"));
 
 const PORT = config.get("port") || 5000;
 
 async function start() {
   try {
-    await mongoose.connect(config.get('mongoUrl'), {
+    await mongoose.connect(config.get("mongoUrl"), {
       useNewUrlParser: true,
       useUnifiedTopology: true,
-      useCreateIndex:true
+      useCreateIndex: true
     });
     app.listen(PORT, () =>
       console.log(`App has been started on PORT ${PORT}...`)
     );
   } catch (e) {
-    console.log('Server Error', e.message)
+    console.log("Server Error", e.message);
     process.exit(1);
   }
 }
