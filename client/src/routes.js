@@ -15,23 +15,20 @@ export const useRoutes = (isAuthenticated) => {
         <Route path="/create" exact>
           <CreatePage />
         </Route>
-        <Route path="/detail/;id">
+        <Route path="/detail/:id">
           <DetailPage />
         </Route>
-        <Route>
-          <Redirect to="/create" />
-        </Route>
+        <Redirect to="/create" />
       </Switch>
     );
   }
+
   return (
     <Switch>
       <Route path="/" exact>
         <AuthPage />
       </Route>
-      <Route>
-        <Redirect to="/" />
-      </Route>
+      <Redirect to="/" />
     </Switch>
   );
 };
