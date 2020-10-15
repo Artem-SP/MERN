@@ -9,11 +9,8 @@
     "client": "npm run start --prefix client",
     "dev": "concurrently \"npm run server\" \"npm run client\""
   },
-  "keywords": [
-    "mern",
-    "react"
-  ],
-  "autor": "Artem Sukhorukov",
+  "keywords": ["mern", "react"],
+  "author": "Artem Sukhorukov",
   "license": "ICS",
   "dependencies": {
     "bcryptjs": "2.4.3",
