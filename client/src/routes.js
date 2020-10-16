@@ -5,6 +5,7 @@ import { CreatePage } from "./pages/CreatePage";
 import { DetailPage } from "./pages/DetailPage";
 import { AuthPage } from "./pages/AuthPage";
 
+// !!!!!  need !!!!!  export const useRoutes = isAuthenticated => {
 export const useRoutes = (isAuthenticated) => {
   if (isAuthenticated) {
     return (

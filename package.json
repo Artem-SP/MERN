@@ -9,7 +9,10 @@
     "client": "npm run start --prefix client",
     "dev": "concurrently \"npm run server\" \"npm run client\""
   },
-  "keywords": ["mern", "react"],
+  "keywords": [
+    "mern",
+    "react"
+  ],
   "author": "Artem Sukhorukov",
   "license": "ICS",
   "dependencies": {
