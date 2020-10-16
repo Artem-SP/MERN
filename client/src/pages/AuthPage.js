@@ -1,6 +1,16 @@
 import React from "react";
 
 export const AuthPage = () => {
+const [form, setForm] = useState(initialState{
+  email: '', passwopd: ''
+})
+
+const chsngeHandler = event => {
+  setForm({...form, [event.trget.name]: event.target.value})
+}
+
+
+
   return (
     <div className="row">
       <div className="col s6 ofset-s3">
@@ -16,6 +26,7 @@ export const AuthPage = () => {
                   type="text"
                   name="email"
                   className="yellow-input"
+                  onChange={chsngeHandler}
                 />
                 <label htmlFor="email">Email</label>
               </div>
@@ -27,6 +38,7 @@ export const AuthPage = () => {
                   type="password"
                   name="passwopd"
                   className="yellow-input"
+                  onChange={chsngeHandler}
                 />
                 <label htmlFor="email">Email</label>
               </div>
