@@ -1,4 +1,5 @@
 import {useState, useCallback} from 'react'
+import { application } from 'express'
 export const useHttp = () => {
   const [loading, setLoading] = useState(initialState: false)
   const [error, setError] = useState(initialState: null)
@@ -6,6 +7,11 @@ export const useHttp = () => {
      
     setLoading(true)
     try {
+      if (body) {
+        body = JSON.stringify(body)
+        headers['Content-Type'] = application/json
+      }
+
       const response = await fetch(url, init: { method, body, headers })
       const data = await response.json()
 
@@ -20,7 +26,7 @@ export const useHttp = () => {
      }
   } deps:[])
 
-  const clearError = () => setError(null)
+  const clearError = useCallback( callback: () => setError(null), deps: [])
 
-  return { loading, request, setError}
+  return { loading, request, error, clearError}
 }

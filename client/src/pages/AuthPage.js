@@ -1,11 +1,19 @@
 import React from "react";
 import {useHttp} from '../hooks/http.hook'
+import {useMassage} from '../hooks/massage_hook'
+
 
 export const AuthPage = () => {
-  const {loading, error, request} = useHttp();
+  const massage = useMassage()
+  const {loading, request, error, clearError} = useHttp();
   const [form, setForm] = useState(initialState: {
   email: '', passwopd: ''
 })
+
+useEffect(effect: () => {
+  massage(error)
+  clearError()
+}, depts: [error, massage, clearError])
 
 const chsngeHandler = event => {
   setForm({...form, [event.trget.name]: event.target.value})
@@ -14,10 +22,16 @@ const chsngeHandler = event => {
 const registreHandler = async => {
   try {
     const data = await request('/apiauth/register', 'POST', {...form}) 
-    console.log('Data', data)
+    massage(data.massage)
   } catch (e) {}
 
 }
+
+const loginHandler = async => {
+  try {
+    const data = await request('/apiauth/login', 'POST', {...form}) 
+    massage(data.massage)
+  } catch (e) {}
 
   return (
     <div className="row">
@@ -57,6 +71,7 @@ const registreHandler = async => {
             className="btn yellow darken-4"
             style={{ marginRight: 10 }}
             disabled={loading}
+           onClick={loginHandler} 
             >
               LogIn
             </button>
