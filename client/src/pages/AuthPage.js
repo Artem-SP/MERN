@@ -1,7 +1,9 @@
 import React from "react";
+import {useHttp} from '../hooks/http.hook'
 
 export const AuthPage = () => {
-const [form, setForm] = useState(initialState{
+  const {loading, error, request} = useHttp();
+  const [form, setForm] = useState(initialState: {
   email: '', passwopd: ''
 })
 
@@ -9,7 +11,13 @@ const chsngeHandler = event => {
   setForm({...form, [event.trget.name]: event.target.value})
 }
 
+const registreHandler = async => {
+  try {
+    const data = await request('/apiauth/register', 'POST', {...form}) 
+    console.log('Data', data)
+  } catch (e) {}
 
+}
 
   return (
     <div className="row">
@@ -45,10 +53,20 @@ const chsngeHandler = event => {
             </div>
           </div>
           <div className="card-action">
-            <button className="btn yellow darken-4" style={{ marginRight: 10 }}>
+            <button 
+            className="btn yellow darken-4"
+            style={{ marginRight: 10 }}
+            disabled={loading}
+            >
               LogIn
             </button>
-            <button className="btn grey lighttn-1 black-texr">SignIn</button>
+            <button 
+            className="btn grey lighttn-1 black-texr"
+            onClick={registreHandler}
+            disabled={loading}
+            >
+              SignIn
+             </button>
           </div>
         </div>
       </div>

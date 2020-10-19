@@ -20,5 +20,7 @@ export const useHttp = () => {
      }
   } deps:[])
 
-  return { loading, request}
+  const clearError = () => setError(null)
+
+  return { loading, request, setError}
 }
