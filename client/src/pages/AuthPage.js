@@ -17,6 +17,10 @@ useEffect(effect: () => {
   clearError()
 }, depts: [error, massage, clearError])
 
+useEffect( effect: () => {
+  window.M.updateTextFields()
+}, deps: [])
+
 const chsngeHandler = event => {
   setForm({...form, [event.trget.name]: event.target.value})
 }
