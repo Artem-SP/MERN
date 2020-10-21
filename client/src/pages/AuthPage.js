@@ -1,9 +1,11 @@
-import React from "react";
+import React, {useContext, useEffect,useState} from "react";
 import {useHttp} from '../hooks/http.hook'
-import {useMassage} from '../hooks/massage_hook'
+import {useMassage} from '../hooks/massage.hook'
+import {AuthContext} from '../auth/AuthContext'
 
 
 export const AuthPage = () => {
+  const auth = useContext(AuthContext)
   const massage = useMassage()
   const {loading, request, error, clearError} = useHttp();
   const [form, setForm] = useState(initialState: {
@@ -22,7 +24,7 @@ const chsngeHandler = event => {
 const registreHandler = async => {
   try {
     const data = await request('/apiauth/register', 'POST', {...form}) 
-    massage(data.massage)
+    auth.login(data.token, data.userId)
   } catch (e) {}
 
 }
