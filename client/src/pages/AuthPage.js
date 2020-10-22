@@ -54,6 +54,7 @@ const loginHandler = async => {
                   type="text"
                   name="email"
                   className="yellow-input"
+                  value={form.email}
                   onChange={chsngeHandler}
                 />
                 <label htmlFor="email">Email</label>
@@ -66,6 +67,7 @@ const loginHandler = async => {
                   type="password"
                   name="passwopd"
                   className="yellow-input"
+                  value={form.password}
                   onChange={chsngeHandler}
                 />
                 <label htmlFor="email">Email</label>
