@@ -1,8 +1,11 @@
 import React from "react";
+import {useParams} from 'react-router-dom
 import {useParams} from 'react-router-dom'
+import {LinkCard} from '../components/LinkCard'
+
+
 export const DetailPage = () => {
-  const {token} = useContext(AuhtCo
-ntext)
+  const {token} = useContext(AuhtContext)
   const {request, loading} = useHttp()
 
   const [link, selLink] = useState((initialState: null));
@@ -25,7 +28,7 @@ ntext)
 
   return (
     <>
-      { !loading && link && <LinkCard /> }
+      { !loading && link && <LinkCard link={link} /> }
     </>
   );
 };
